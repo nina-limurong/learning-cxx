@@ -10,7 +10,7 @@ struct A {
     A() {
         ++num_a;
     }
-    ~A() {
+    virtual ~A() {
         --num_a;
     }
 
@@ -33,6 +33,9 @@ struct B final : public A {
         return 'B';
     }
 };
+
+int A::num_a = 0;
+int B::num_b = 0;
 
 int main(int argc, char **argv) {
     auto a = new A;
